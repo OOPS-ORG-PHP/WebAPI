@@ -12,7 +12,7 @@
 		<active>yes</active>
 	</lead>
 	<date>2013-10-13</date>
-	<time>01:11:36</time>
+	<time>01:13:06</time>
 	<version>
 		<release>1.0.0</release>
 		<api>1.0.0</api>
@@ -50,6 +50,11 @@
 			</package>
 			<package>
 				<name>HTTPRelay</name>
+				<channel>pear.oops.org</channel>
+				<min>1.0.2</min>
+			</package>
+			<package>
+				<name>ipcalc</name>
 				<channel>pear.oops.org</channel>
 				<min>1.0.2</min>
 			</package>
