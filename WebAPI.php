@@ -257,17 +257,17 @@ Class WebAPI {
 	}
 	// }}}
 
-	// {{{ +-- static public (string) autolink (&$str)
+	// {{{ +-- static public (void) autolink (&$str)
 	/**
 	 * 주어진 문장속의 URL을 hyper link로 변경
 	 *
 	 * @access public
-	 * @return string
+	 * @return void
 	 * @param string
 	 */
 	static public function autolink (&$str) {
 		WebAPI_Autolink::$utf8 = self::$utf8;
-		return WebAPI_Autolink::execute ($str);
+		WebAPI_Autolink::execute ($str);
 	}
 	// }}}
 
