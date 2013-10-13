@@ -11,8 +11,8 @@
 		<email>joungkyun@gmail.com</email>
 		<active>yes</active>
 	</lead>
-	<date>2013-10-13</date>
-	<time>01:13:06</time>
+	<date>2013-10-14</date>
+	<time>00:52:51</time>
 	<version>
 		<release>1.0.0</release>
 		<api>1.0.0</api>
@@ -26,9 +26,9 @@
 </notes>
 	<contents>
 		<dir name="/">
-			<file role="php" md5sum="0e263bfba5bf1573a98ebc64614f4132" name="WebAPI.php" />
+			<file role="php" md5sum="9dcebd58c6ab8f62d6dc74123f3801a8" name="WebAPI.php" />
 			<file role="php" md5sum="bbdd866973ac83617224063fcbe4cc0c" name="WebAPI/WebAPI_Autolink.php" />
-			<file role="php" md5sum="bfbafba9280b8a851dc925ffc816c870" name="WebAPI/WebAPI_Filter.php" />
+			<file role="php" md5sum="a05b4df82a925b126d157b890a43ba17" name="WebAPI/WebAPI_Filter.php" />
 		</dir>
 	</contents>
 	<dependencies>
@@ -71,7 +71,7 @@
 				<release>stable</release>
 				<api>stable</api>
 			</stability>
-			<date>2013-10-13</date>
+			<date>2013-10-14</date>
 			<license>BSD</license>
 			<notes>* release 1.0.0
 </notes>
