@@ -72,7 +72,7 @@ Class WebAPI_Filter {
 	 * @access public
 	 * @return boolean
 	 * @param string 필터링할 문자열
-	 * @param string 필터링 패턴
+	 * @param string 필터링 패턴. 정규식은 PCRE를 사용한다.
 	 */
 	static public function context (&$text, &$pattern) {
 		$lines = preg_split ("/\r?\n/", $pattern);
