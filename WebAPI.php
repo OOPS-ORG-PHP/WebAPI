@@ -376,7 +376,7 @@ Class WebAPI {
 	 * @access public
 	 * @return boolean
 	 * @param string 필터링할 문자열
-	 * @param string 필터링 패턴
+	 * @param string 필터링 패턴. 패턴은 PCRE 정규 표현식을 이용한다.
 	 */
 	static public function filter_context (&$text, &$pattern) {
 		return WebAPI::context ($text, $pattern);
@@ -390,7 +390,7 @@ Class WebAPI {
 	 * @access public
 	 * @return boolean
 	 * @param string 필터링할 문자열
-	 * @param string 필터링 DB 파일
+	 * @param string 필터링 패턴 파일. 패턴은 PCRE 정규 표현식을 이용한다.
 	 */
 	static public function filter_context_file (&$text, &$patfile) {
 		return WebAPI_Finter::context_file ($text, $patfile);
