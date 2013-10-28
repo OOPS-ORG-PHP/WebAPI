@@ -98,7 +98,7 @@ Class WebAPI {
 
 	// {{{ +-- static public (boolean) is_hangul (&$s)
 	/**
-	 * 주어진 값에 한글(UTF0/EUC-KR)이 포함 되어 있는지를 판단
+	 * 주어진 값에 한글(UTF8/EUC-KR)이 포함 되어 있는지를 판단
 	 *
 	 * 이 method의 경우에는 한글이 아닌 다른 연속된 multibyte 문자의
 	 * 마지막 바이트와 첫번째 바이트에 의한 오차가 발생할 수 있으므로
