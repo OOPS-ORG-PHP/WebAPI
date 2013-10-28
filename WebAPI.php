@@ -111,7 +111,7 @@ Class WebAPI {
 	 */
 	static public function is_hangul (&$s) {
 		// UTF-8 case
-		if ( preg_match ('/[\x{1100}-\x{11FF}\x{3130}-\x{318F}\x{AC00}-\x{D7AF}]/', $s) )
+		if ( preg_match ('/[\x{1100}-\x{11FF}\x{3130}-\x{318F}\x{AC00}-\x{D7AF}]/u', $s) )
 			return true;
 
 		// EUC-KR case
