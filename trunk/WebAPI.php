@@ -43,6 +43,16 @@ Class WebAPI {
 	/**#@+
 	 * @access public
 	 */
+
+	/**
+	 * @const WebAPI::UTF8 1
+	 */
+	const UTF8 = 1;
+	/**
+	 * @const WebAPI::EUCKR 2
+	 */
+	const EUCKR = 2;
+
 	/**
 	 * UTF8 처리 여부. 기본값 true
 	 * @var bool
@@ -96,7 +106,7 @@ Class WebAPI {
 	}
 	// }}}
 
-	// {{{ +-- static public (boolean) is_hangul (&$s)
+	// {{{ +-- static public (boolean) is_hangul (&$s, $division = false)
 	/**
 	 * 주어진 값에 한글(UTF8/EUC-KR)이 포함 되어 있는지를 판단
 	 *
@@ -106,17 +116,23 @@ Class WebAPI {
 	 * 바란다.
 	 *
 	 * @access public
-	 * @return boolean
+	 * @return bool
 	 * @param  string
+	 * @praam  bool   (optional) true로 설정할 경우, EUC-KR과 UTF-8을
+	 *                구분하여 결과값을 반환한다.
+	 *     - ASCII returns false
+	 *     - UTF-8 returns WebAPI::UTF8
+	 *     - EUC-KR returns WebAPI::EUCKR
+	 * @sinse 1.0.1 added 2th parameter.
 	 */
-	static public function is_hangul (&$s) {
+	static public function is_hangul (&$s, $division = false) {
 		// UTF-8 case
 		if ( preg_match ('/[\x{1100}-\x{11FF}\x{3130}-\x{318F}\x{AC00}-\x{D7AF}]/u', $s) )
-			return true;
+			return $division ? self::UTF8 : true;
 
 		// EUC-KR case
 		if ( preg_match ('/[\xA1-\xFE]/', $s) )
-			return true;
+			return $division ? self::EUCKR : true;
 
 		return false;
 	}
@@ -268,6 +284,62 @@ Class WebAPI {
 	static public function autolink (&$str) {
 		WebAPI_Autolink::$utf8 = self::$utf8;
 		WebAPI_Autolink::execute ($str);
+	}
+	// }}}
+
+	// {{{ +-- static public (string) substr ($data, $start, $end = false)
+	/**
+	 * Return part of a string
+	 *
+	 * 사용법은 php의 native substr과 동일하다.
+	 *
+	 * native substr과의 차이는, 시작과 끝은 한글이 깨지는 문제를 해결을
+	 * 한다. 이 함수는 한글을 2byte로 처리를 하며, UTF-8이라도 한글을 길이는
+	 * 2byte로 계산을 하여 반환한다.
+	 *
+	 * @return string
+	 * @param string  The input string. Must be one character or longer.
+	 * @param int     start position
+	 * @param int     (optional) length of returning part.
+	 */
+	static public function substr ($data, $start, $end = false) {
+		if ( ! ($type = self::is_hangul ($data, true)) )
+			return substr ($data, $start, $end);
+
+		if ( $end === 0 )
+			return null;
+
+		if ( $type == self::UTF8 )
+			$data = iconv ('UTF-8', 'CP949', $data);
+
+		if ( $start < 0 )
+			$start = strlen ($data) + $start;
+
+		if ( $end === false )
+			$end = strlen ($data) - $start;
+		else if ( $end < 0 )
+			$end = strlen ($data) + $end - $start;
+
+		if ( $end < 2 )
+			return null;
+
+		if ( $start > 0 ) {
+			$buf = substr ($data, 0, $start);
+			$buf = preg_replace ('/[a-z0-9]|([\x80-\xFE].)/', '', $buf);
+			if ( strlen ($buf) != 0 )
+				$start--;
+		}
+
+		if ( $data[$start - 1] & 0x80 )
+			$start--;
+
+		$data = substr ($data, $start, $end);
+		$data = preg_replace ('/(([\x80-\xFE].)*)[\x80-\xFE]?$/', '\\1', $data);
+
+		if ( $type === self::UTF8 )
+			return iconv ('CP949', 'UTF-8', $data);
+
+		return $data;
 	}
 	// }}}
 
