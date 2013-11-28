@@ -1,6 +1,6 @@
 <?php
 /**
- * Project: WebAPI_Filter :: Auto link API
+ * Project: WebAPI_Filter :: Filtered context or IP
  * File:    WebAPI/WebAPI_Filter.php
  *
  * WebAPI_Filter class는 단어 및 IP 필터링을 제공한다.
