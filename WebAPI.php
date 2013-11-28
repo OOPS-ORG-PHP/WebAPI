@@ -32,6 +32,11 @@ require_once 'WebAPI/WebAPI_Autolink.php';
  */
 require_once 'WebAPI/WebAPI_Filter.php';
 
+/**
+ * import WebAPI_Browser API
+ */
+require_once 'WebAPI/WebAPI_Browser.php';
+
 
 /**
  * WebAPI 패키지는 WEB에서 사용되는 문자열 관련 API를 제공한다.
@@ -486,6 +491,21 @@ Class WebAPI {
 	 */
 	static public function filter_ip (&$ip) {
 		return WebAPI_Filter::ip ($ip);
+	}
+	// }}}
+
+	// {{{ +-- static public (stdClass) browser (void)
+	/**
+	 * Broswer API
+	 *
+	 * Browser 정보를 구함
+	 *
+	 * @access public
+	 * @return stdClass
+	 * @sinse 1.0.2
+	 */
+	static public function browser ($u = null) {
+		return WebAPI_Browser::exec ($u);
 	}
 	// }}}
 }
