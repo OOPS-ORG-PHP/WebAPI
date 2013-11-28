@@ -11,8 +11,8 @@
 		<email>joungkyun@gmail.com</email>
 		<active>yes</active>
 	</lead>
-	<date>2013-11-06</date>
-	<time>02:06:30</time>
+	<date>2013-11-28</date>
+	<time>13:03:33</time>
 	<version>
 		<release>1.0.2</release>
 		<api>1.0.0</api>
@@ -23,11 +23,12 @@
 	</stability>
 	<license>BSD</license>
 	<notes>* fixed that exists %20 escaped character on email link WebAPI_Autolink::execute
+* fixed undeclare method on WebAPI::filter_context_file
 </notes>
 	<contents>
 		<dir name="/">
-			<file role="php" md5sum="6b45685d2c9e77abf44917e6209b8271" name="WebAPI.php" />
-			<file role="php" md5sum="b27d7e9933eb9ca8861cf3db08d70d18" name="WebAPI/WebAPI_Autolink.php" />
+			<file role="php" md5sum="b8405495811694de2654d92687024236" name="WebAPI.php" />
+			<file role="php" md5sum="44813a95e5966fb3ddf47c23bc73ae9b" name="WebAPI/WebAPI_Autolink.php" />
 			<file role="php" md5sum="a05b4df82a925b126d157b890a43ba17" name="WebAPI/WebAPI_Filter.php" />
 		</dir>
 	</contents>
@@ -71,7 +72,7 @@
 				<release>stable</release>
 				<api>stable</api>
 			</stability>
-			<date>2013-11-06</date>
+			<date>2013-11-28</date>
 			<license>BSD</license>
 			<notes>* fixed that exists %20 escaped character on email link WebAPI_Autolink::execute
 </notes>
