@@ -23,7 +23,7 @@
 require_once 'ipcalc.php';
 
 /**
- * Autolink API for WebAPI Package
+ * Filtered context or IP
  *
  * WebAPI_Filter class는 단어 및 IP 필터링을 제공한다.
  *
