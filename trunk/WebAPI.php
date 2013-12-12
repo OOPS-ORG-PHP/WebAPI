@@ -37,6 +37,11 @@ require_once 'WebAPI/WebAPI_Filter.php';
  */
 require_once 'WebAPI/WebAPI_Browser.php';
 
+/**
+ * import WebAPI_Mimetype API
+ */
+require_once 'WebAPI/WebAPI_Mimetype.php';
+
 
 /**
  * WebAPI 패키지는 WEB에서 사용되는 문자열 관련 API를 제공한다.
@@ -219,32 +224,6 @@ Class WebAPI {
 	static public function is_protocol (&$v) {
 		WebAPI_Autolink::$utf8 = self::$utf8;
 		return WebAPI_Autolink::is_protocol ($v);
-	}
-	// }}}
-
-	// {{{ +-- static public (string) get_file_extension ($f, $post = false)
-	/**
-	 * 파일의 확장자를 반환
-	 *
-	 * @access public
-	 * @return string  파일 확장자. 확장자가 없을 경우 null 반환.
-	 * @param  string  파일 이름 또는 경로
-	 * @param  boolean (optional) true로 설정시에 $_POST[첫번째인자값]['name']의
-	 *         값에서 확장자를 반환.
-	 */
-	static public function get_file_extension ($f, $post = false) {
-		if ( $post === true ) {
-			if ( defined ($_POST[$f]) )
-				$f = $_POST[$f]['name'];
-		}
-
-		if ( ! preg_match ('/\./', $f) )
-			return null;
-
-		$ext = preg_split ('/\./', $f);
-		$tail = $ext[count ($ext) - 1];
-
-		return $tail ? $tail : null;
 	}
 	// }}}
 
@@ -439,6 +418,44 @@ Class WebAPI {
 			return array ();
 
 		return $matches[1];
+	}
+	// }}}
+
+	/**
+	 * File fucntions
+	 */
+	// {{{ +-- static public (string) get_file_extension ($f, $post = false)
+	/**
+	 * 파일의 확장자를 반환
+	 *
+	 * @access public
+	 * @return string  파일 확장자. 확장자가 없을 경우 null 반환.
+	 * @param  string  파일 이름 또는 경로
+	 * @param  boolean (optional) true로 설정시에 $_POST[첫번째인자값]['name']의
+	 *         값에서 확장자를 반환.
+	 */
+	static public function get_file_extension ($f, $post = false) {
+		if ( $post === true ) {
+			if ( defined ($_POST[$f]) )
+				$f = $_POST[$f]['name'];
+		}
+
+		if ( ! preg_match ('/\./', $f) )
+			return null;
+
+		$ext = preg_split ('/\./', $f);
+		$tail = $ext[count ($ext) - 1];
+
+		return $tail ? $tail : null;
+	}
+	// }}}
+
+	// {{{ +-- static public mimetype ($name)
+	/**
+	 *
+	 */
+	static public function mimetype ($name) {
+		return WebAPI_Mimetype::mime ($name);
 	}
 	// }}}
 
