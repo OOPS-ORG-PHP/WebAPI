@@ -431,13 +431,13 @@ Class WebAPI {
 	 * @access public
 	 * @return string  파일 확장자. 확장자가 없을 경우 null 반환.
 	 * @param  string  파일 이름 또는 경로
-	 * @param  boolean (optional) true로 설정시에 $_POST[첫번째인자값]['name']의
+	 * @param  boolean (optional) true로 설정시에 $_FILES[첫번째인자값]['name']의
 	 *         값에서 확장자를 반환.
 	 */
 	static public function get_file_extension ($f, $post = false) {
 		if ( $post === true ) {
-			if ( defined ($_POST[$f]) )
-				$f = $_POST[$f]['name'];
+			if ( defined ($_FILES[$f]) )
+				$f = $_FILES[$f]['name'];
 		}
 
 		if ( ! preg_match ('/\./', $f) )
