@@ -25,18 +25,6 @@
  * @package     WebAPI
  */
 Class WebAPI_Browser {
-	// {{{ properties
-	/**#@+
-	 * @access private
-	 */
-	/**
-	 * IPCALC constructor
-	 * @var IPCALC
-	 */
-	static private $ip = null;
-	/**#@-*/
-	// }}}
-
 	/**
 	 * 브라우저 정보를 구함
 	 *
