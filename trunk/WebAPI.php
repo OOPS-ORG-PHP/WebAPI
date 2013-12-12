@@ -446,7 +446,7 @@ Class WebAPI {
 		$ext = preg_split ('/\./', $f);
 		$tail = $ext[count ($ext) - 1];
 
-		return $tail ? $tail : null;
+		return $tail ? strtolower ($tail) : null;
 	}
 	// }}}
 
