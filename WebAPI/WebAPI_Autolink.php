@@ -156,6 +156,8 @@ Class WebAPI_Autolink {
 		$des[] = '<\\1\\2="\\4_orig://\\5"';
 		$src[] = "/<([^>]*)(codebase|pluginspage)[\s]*=[\"'\s]*({$reg->link})[\"']*/${um}i";
 		$des[] = '<\\1\\2="\\4_orig://\\5"';
+		$src[] = "/<([^>]*)(rsrc)[\s]*=[\"'\s]*({$reg->link})[\"']*/${um}i";
+		$des[] = '<\\1\\2="\\4_orig://\\5"';
 
 		# 링크가 안된 url및 email address 자동링크
 		$src[] = "/((src|href|base|ground)[\s]*=[\s]*|[^=]|^)({$reg->link})/{$um}i";
