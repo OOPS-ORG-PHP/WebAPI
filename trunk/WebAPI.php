@@ -355,14 +355,18 @@ Class WebAPI {
 			'scroll|select|selectionchange|selectstart|start|stop|submit|unload';
 
 		$src = array (
-			'/<[\s]*(script|iframe|frame|style|link|meta|head)[\s>]+/i',
+			'/<[\s]*(iframe)[\s>]+/i',
+			'/<[\s]*(script|frame|style|link|meta|head)[\s>]+/i',
 			'/background[\s]*(:[\s]*url|=)/i',
 			'/(src|href)[\s]*=["\'\s]*(javascript|&#106;|&#74;|%6A|%4A)/i',
 			'/on(' . $event . ')[\s]*=/i'
 		);
 
 		foreach ( $src as $filter ) {
-			if ( preg_match ($filter, $str) ) {
+			if ( preg_match ($filter, $str, $m) ) {
+				if ( self::xss_youtube_ext ($m[1], $str) === true )
+					continue;
+
 				self::$xssinfo->status = true;
 				self::$xssinfo->msg = sprintf (
 					'\'%s\' pattern is matched. This is strongly doubt XSS attack.',
@@ -386,7 +390,7 @@ Class WebAPI {
 			if ( ($buf = $http->head ($path, 1)) === false )
 				continue;
 
-			if ( ! preg_match ('!^image\/!i', $buf->{'Content-Type'}) ) {
+			if ( ! preg_match ('!^image/!i', $buf->{'Content-Type'}) ) {
 				self::$xssinfo->status = true;
 				self::$xssinfo->msg = sprintf (
 					'The value of image src property (%s) is assumed that is not image.' .
@@ -400,6 +404,35 @@ Class WebAPI {
 		return false;
 	}
 	// }}}
+
+	/*
+	 * self::xss 체크시에 youbute의 iframe은 허가
+	 */
+	private function xss_youtube_ext ($filter, &$data) {
+		if ( strtolower ($filter) != 'iframe' )
+			return false;
+
+		if ( ! preg_match_all ('/<iframe[^>]+>/i', $data, $m) )
+			return false;
+
+		$dom = new DOMDocument ();
+		$dom->encoding = 'utf-8';
+		$dom->formatOutput = true;
+
+		foreach ( $m as $v ) {
+			@$dom->loadHTML ($v[0] . '</iframe>');
+			$iframe = $dom->getElementsByTagName ('iframe');
+			if ( $iframe->length < 1 )
+				continue;
+
+			$src = $iframe->item(0)->getAttribute ('src');
+
+			if ( ! preg_match ('!^(http[s]?:)?//(www\.)?youtube\.(be|com)/!i', trim ($src)) )
+				return false;
+		}
+
+		return true;
+	}
 
 	// {{{ +-- private (array) img_tags ($buf)
 	/**
