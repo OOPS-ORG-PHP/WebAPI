@@ -405,6 +405,7 @@ Class WebAPI {
 	}
 	// }}}
 
+	// {{{ +-- private xss_youtube_ext ($filter, &$data)
 	/*
 	 * self::xss 체크시에 youbute의 iframe은 허가
 	 */
@@ -427,12 +428,13 @@ Class WebAPI {
 
 			$src = $iframe->item(0)->getAttribute ('src');
 
-			if ( ! preg_match ('!^(http[s]?:)?//(www\.)?youtube\.(be|com)/!i', trim ($src)) )
+			if ( ! preg_match ('!^(http[s]?:)?//(www\.)?youtube(-nocookie)?\.(be|com)/!i', trim ($src)) )
 				return false;
 		}
 
 		return true;
 	}
+	// }}}
 
 	// {{{ +-- private (array) img_tags ($buf)
 	/**
