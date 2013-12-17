@@ -11,8 +11,8 @@
 		<email>joungkyun@gmail.com</email>
 		<active>yes</active>
 	</lead>
-	<date>2013-12-16</date>
-	<time>02:34:32</time>
+	<date>2013-12-17</date>
+	<time>23:03:14</time>
 	<version>
 		<release>1.0.2</release>
 		<api>1.0.0</api>
@@ -29,11 +29,12 @@
 * add WebAPI::mimetype method
 * permit youtube iframe on WebAPI::xss method
 * fixed broken rsrc properity on WebAPI::autolink method
+* fixed broken value of param tag WebAPI::autolink method
 </notes>
 	<contents>
 		<dir name="/">
 			<file role="php" md5sum="c6795c32fb2132d5b77fd1f57714556d" name="WebAPI.php" />
-			<file role="php" md5sum="b5dbe679f35b17805b91d089f3cb413a" name="WebAPI/WebAPI_Autolink.php" />
+			<file role="php" md5sum="3bd1ec50ebf78da1f8e0c1bfbb7318cb" name="WebAPI/WebAPI_Autolink.php" />
 			<file role="php" md5sum="e10f0c0fb570717ffc7c518e0b307040" name="WebAPI/WebAPI_Browser.php" />
 			<file role="php" md5sum="903785559136f8b24d88670ad9320e0c" name="WebAPI/WebAPI_Filter.php" />
 			<file role="php" md5sum="58a79117423716e02e49cfe02026e73d" name="WebAPI/WebAPI_Mimetype.php" />
@@ -80,7 +81,7 @@
 				<release>stable</release>
 				<api>stable</api>
 			</stability>
-			<date>2013-12-16</date>
+			<date>2013-12-17</date>
 			<license>BSD</license>
 			<notes>* fixed that exists %20 escaped character on email link WebAPI_Autolink::execute
 * fixed undeclare class on WebAPI::filter_context
@@ -88,6 +89,8 @@
 * add WebAPI::browser method
 * add WebAPI::mimetype method
 * permit youtube iframe on WebAPI::xss method
+* fixed broken rsrc properity on WebAPI::autolink method
+* fixed broken value of param tag WebAPI::autolink method
 </notes>
 		</release>
 		<release>
