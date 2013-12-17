@@ -154,7 +154,7 @@ Class WebAPI_Autolink {
 		# 태크들로 나누어 준다.
 		$src[] = "/<([^>]*)(background|src)[\s]*=[\"'\s]*({$reg->link})[\"']*/${um}i";
 		$des[] = '<\\1\\2="\\4_orig://\\5"';
-		$src[] = "/<([^>]*)(codebase|pluginspage)[\s]*=[\"'\s]*({$reg->link})[\"']*/${um}i";
+		$src[] = "/<([^>]*)(codebase|pluginspage|value)[\s]*=[\"'\s]*({$reg->link})[\"']*/${um}i";
 		$des[] = '<\\1\\2="\\4_orig://\\5"';
 		$src[] = "/<([^>]*)(rsrc)[\s]*=[\"'\s]*({$reg->link})[\"']*/${um}i";
 		$des[] = '<\\1\\2="\\4_orig://\\5"';
