@@ -12,7 +12,7 @@
 		<active>yes</active>
 	</lead>
 	<date>2014-01-25</date>
-	<time>18:00:49</time>
+	<time>18:01:32</time>
 	<version>
 		<release>1.0.2</release>
 		<api>1.0.0</api>
@@ -33,12 +33,12 @@
 </notes>
 	<contents>
 		<dir name="/">
-			<file role="php" md5sum="f22d04a0b0991589271aa8316d7bb253" name="WebAPI.php" />
-			<file role="php" md5sum="71b8564850d930fe09f9325910e6882e" name="WebAPI/WebAPI_Autolink.php" />
-			<file role="php" md5sum="322372ab6ab790db5691abfb547f5033" name="WebAPI/WebAPI_Browser.php" />
-			<file role="php" md5sum="88f7e1f614019c8578a557358a0228ca" name="WebAPI/WebAPI_Filter.php" />
-			<file role="php" md5sum="bf6c0b160338af38d74e4ab3498ed7ca" name="WebAPI/WebAPI_Mimetype.php" />
-			<file role="php" md5sum="2c6eba3d2068f4b1f5daa71856aa6e81" name="WebAPI/pure_mimetype.php" />
+			<file role="php" md5sum="dfe2fe5c64051d30e091c418efc17014" name="WebAPI.php" />
+			<file role="php" md5sum="fda3e74d44b15a05cb05fb13d9586873" name="WebAPI/WebAPI_Autolink.php" />
+			<file role="php" md5sum="855108694384d798a8929cd2756d19ae" name="WebAPI/WebAPI_Browser.php" />
+			<file role="php" md5sum="b48144d682035f25cb58478bb3bcdb55" name="WebAPI/WebAPI_Filter.php" />
+			<file role="php" md5sum="45cf983e22d304670ae24005936fc192" name="WebAPI/WebAPI_Mimetype.php" />
+			<file role="php" md5sum="8e1ee7bc299e836b9302fd8eeaa77367" name="WebAPI/pure_mimetype.php" />
 		</dir>
 	</contents>
 	<dependencies>
