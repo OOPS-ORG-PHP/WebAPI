@@ -11,8 +11,8 @@
 		<email>joungkyun@gmail.com</email>
 		<active>yes</active>
 	</lead>
-	<date>2013-12-17</date>
-	<time>23:03:14</time>
+	<date>2014-01-25</date>
+	<time>18:00:49</time>
 	<version>
 		<release>1.0.2</release>
 		<api>1.0.0</api>
@@ -33,12 +33,12 @@
 </notes>
 	<contents>
 		<dir name="/">
-			<file role="php" md5sum="c6795c32fb2132d5b77fd1f57714556d" name="WebAPI.php" />
-			<file role="php" md5sum="3bd1ec50ebf78da1f8e0c1bfbb7318cb" name="WebAPI/WebAPI_Autolink.php" />
-			<file role="php" md5sum="e10f0c0fb570717ffc7c518e0b307040" name="WebAPI/WebAPI_Browser.php" />
-			<file role="php" md5sum="903785559136f8b24d88670ad9320e0c" name="WebAPI/WebAPI_Filter.php" />
-			<file role="php" md5sum="58a79117423716e02e49cfe02026e73d" name="WebAPI/WebAPI_Mimetype.php" />
-			<file role="php" md5sum="c2906b5d028392e26f56d972f5a676e8" name="WebAPI/pure_mimetype.php" />
+			<file role="php" md5sum="f22d04a0b0991589271aa8316d7bb253" name="WebAPI.php" />
+			<file role="php" md5sum="71b8564850d930fe09f9325910e6882e" name="WebAPI/WebAPI_Autolink.php" />
+			<file role="php" md5sum="322372ab6ab790db5691abfb547f5033" name="WebAPI/WebAPI_Browser.php" />
+			<file role="php" md5sum="88f7e1f614019c8578a557358a0228ca" name="WebAPI/WebAPI_Filter.php" />
+			<file role="php" md5sum="bf6c0b160338af38d74e4ab3498ed7ca" name="WebAPI/WebAPI_Mimetype.php" />
+			<file role="php" md5sum="2c6eba3d2068f4b1f5daa71856aa6e81" name="WebAPI/pure_mimetype.php" />
 		</dir>
 	</contents>
 	<dependencies>
@@ -81,7 +81,7 @@
 				<release>stable</release>
 				<api>stable</api>
 			</stability>
-			<date>2013-12-17</date>
+			<date>2014-01-25</date>
 			<license>BSD</license>
 			<notes>* fixed that exists %20 escaped character on email link WebAPI_Autolink::execute
 * fixed undeclare class on WebAPI::filter_context
