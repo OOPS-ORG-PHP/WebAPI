@@ -540,7 +540,7 @@ Class WebAPI {
 
 	// {{{ +-- static public (boolean) filter_ip (&$ip)
 	/**
-	 * 접속 IP가 주어진 CIDR/MASK에 포함이 되는지 확인
+	 * 접속 IP($_SERVER['REMOTE_ADDR'])가 주어진 CIDR/MASK에 포함이 되는지 확인
 	 *
 	 * @access public
 	 * @return boolean
