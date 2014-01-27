@@ -331,6 +331,14 @@ Class WebAPI {
 	/**
 	 * XSS 탐지
 	 *
+	 *  - Javascript event(onmouseover 등)가 존재할 경우
+	 *  - iframe, frame, script, style, link, meta, head tag가 있을 경우
+	 *  - src 또는 href attribute에 javascript를 사용할 경우
+	 *  - css background* 나 html background* attribute가 존재할 경우
+	 *
+	 *  - 예외 사항
+	 *    . youtube link 예외 처리 (iframe)
+	 *
 	 * @access public
 	 * @return boolean XSS 탐지시 true
 	 * @param string
@@ -485,9 +493,13 @@ Class WebAPI {
 	}
 	// }}}
 
-	// {{{ +-- static public mimetype ($name)
+	// {{{ +-- static public (string) mimetype ($name)
 	/**
+	 * 주어진 파일의 mimetype을 결정한다.
 	 *
+	 * @access public
+	 * @param string mimetype 정보를 확인할 파일경로
+	 * @return string
 	 */
 	static public function mimetype ($name) {
 		return WebAPI_Mimetype::mime ($name);
