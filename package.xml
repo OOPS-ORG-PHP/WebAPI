@@ -11,10 +11,10 @@
 		<email>joungkyun@gmail.com</email>
 		<active>yes</active>
 	</lead>
-	<date>2014-01-25</date>
-	<time>18:01:32</time>
+	<date>2014-02-13</date>
+	<time>17:19:36</time>
 	<version>
-		<release>1.0.2</release>
+		<release>1.0.3</release>
 		<api>1.0.0</api>
 	</version>
 	<stability>
@@ -22,21 +22,15 @@
 		<api>stable</api>
 	</stability>
 	<license>BSD</license>
-	<notes>* fixed that exists %20 escaped character on email link WebAPI_Autolink::execute
-* fixed undeclare class on WebAPI::filter_context
-* fixed undeclare class on WebAPI::filter_context_file
-* add WebAPI::browser method
-* add WebAPI::mimetype method
-* permit youtube iframe on WebAPI::xss method
-* fixed broken rsrc properity on WebAPI::autolink method
-* fixed broken value of param tag WebAPI::autolink method
+	<notes>* Add WebAPI::json_encode by http://jokbo.oops.org/
 </notes>
 	<contents>
 		<dir name="/">
-			<file role="php" md5sum="dfe2fe5c64051d30e091c418efc17014" name="WebAPI.php" />
+			<file role="php" md5sum="3d3fe07fbd7758ef6ec04e099cb47b10" name="WebAPI.php" />
 			<file role="php" md5sum="fda3e74d44b15a05cb05fb13d9586873" name="WebAPI/WebAPI_Autolink.php" />
 			<file role="php" md5sum="855108694384d798a8929cd2756d19ae" name="WebAPI/WebAPI_Browser.php" />
 			<file role="php" md5sum="b48144d682035f25cb58478bb3bcdb55" name="WebAPI/WebAPI_Filter.php" />
+			<file role="php" md5sum="9264da43693614bafb61c4bd5ea00cdc" name="WebAPI/WebAPI_JSON.php" />
 			<file role="php" md5sum="45cf983e22d304670ae24005936fc192" name="WebAPI/WebAPI_Mimetype.php" />
 			<file role="php" md5sum="8e1ee7bc299e836b9302fd8eeaa77367" name="WebAPI/pure_mimetype.php" />
 		</dir>
@@ -72,6 +66,20 @@
 	</dependencies>
 	<phprelease />
 	<changelog>
+		<release>
+			<version>
+				<release>1.0.3</release>
+				<api>1.0.0</api>
+			</version>
+			<stability>
+				<release>stable</release>
+				<api>stable</api>
+			</stability>
+			<date>2014-02-13</date>
+			<license>BSD</license>
+			<notes>* Add WebAPI::json_encode by http://jokbo.oops.org/
+</notes>
+		</release>
 		<release>
 			<version>
 				<release>1.0.2</release>
