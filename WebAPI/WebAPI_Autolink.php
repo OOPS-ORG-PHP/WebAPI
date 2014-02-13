@@ -116,7 +116,7 @@ Class WebAPI_Autolink {
 	 *
 	 * @access public
 	 * @return string
-	 * @param void
+	 * @param string 문자열
 	 */
 	static public function execute (&$v) {
 		self::set_regex_template ();
