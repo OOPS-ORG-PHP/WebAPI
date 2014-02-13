@@ -42,6 +42,11 @@ require_once 'WebAPI/WebAPI_Browser.php';
  */
 require_once 'WebAPI/WebAPI_Mimetype.php';
 
+/**
+ * import WebAPI_JSON API
+ */
+require_once 'WebAPI/WebAPI_JSON.php';
+
 
 /**
  * WebAPI 패키지는 WEB에서 사용되는 문자열 관련 API를 제공한다.
@@ -570,6 +575,26 @@ Class WebAPI {
 	 */
 	static public function browser ($u = null) {
 		return WebAPI_Browser::exec ($u);
+	}
+	// }}}
+
+	/**
+	 * JSON function
+	 */
+
+	// {{{ +-- static public (string) json_encode ($text, $nopretty = false)
+	/**
+	 * utf8 conflict 를 해결한 json encode wrapper
+	 *
+	 * @access public
+	 * @return string
+	 * @param mixed encode할 변수
+	 * @param bool pretty 출력 여부. 기본값 false이며 이는 pretty 출력
+	 *             을 의미한다. pretty 인자는 php 5.4 부터 지원한다.
+	 * @since 1.0.3
+	 */
+	static public function json_encode ($text, $nopretty = false) {
+		return WebAPI_JSON::encode ($text, $nopretty);
 	}
 	// }}}
 }
