@@ -37,7 +37,7 @@ Class WebAPI_JSON {
 
 		foreach ( $var as $key => $val ) {
 			if ( is_object ($val) || is_array ($val) )
-				$buf[urlencode ($key)] = self::multibyte ($val);
+				$buf[urlencode ($key)] = self::normalize ($val);
 			else
 				$buf[urlencode ($key)] = urlencode ($val);
 		}
