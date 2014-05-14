@@ -12,7 +12,7 @@
 		<active>yes</active>
 	</lead>
 	<date>2014-05-15</date>
-	<time>00:49:40</time>
+	<time>01:20:30</time>
 	<version>
 		<release>1.0.3</release>
 		<api>1.0.0</api>
@@ -24,10 +24,11 @@
 	<license>BSD</license>
 	<notes>* Add WebAPI::json_encode by http://jokbo.oops.org/
 * enhanced WebAPI::mimetype
+* added WebAPI::mimeHeader api
 </notes>
 	<contents>
 		<dir name="/">
-			<file role="php" md5sum="497adb0bc9218d9d3f80b79077927c5d" name="WebAPI.php" />
+			<file role="php" md5sum="76fa3fe0f4491b3b6ed22813d3eacba4" name="WebAPI.php" />
 			<file role="php" md5sum="29aaa527e06068eda8daf79bd0019fb2" name="WebAPI/WebAPI_Autolink.php" />
 			<file role="php" md5sum="855108694384d798a8929cd2756d19ae" name="WebAPI/WebAPI_Browser.php" />
 			<file role="php" md5sum="b48144d682035f25cb58478bb3bcdb55" name="WebAPI/WebAPI_Filter.php" />
