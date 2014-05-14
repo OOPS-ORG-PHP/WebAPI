@@ -504,11 +504,14 @@ Class WebAPI {
 	 *
 	 * @access public
 	 * @param string mimetype 정보를 확인할 파일경로
-	 * @param WebAPI::browser (optional) WebAPI::browser 의 반환값.
+	 * @param WebAPI::browser br (optional) WebAPI::browser 의 반환값.
 	 *        비워 놓으면 내부적으로 다시 확인한다.
 	 * @return string
 	 */
 	static public function mimetype ($name, $br = null) {
+		$name = basename ($name);
+		$name = preg_replace ('/\.(code|exeobj)$/', '', $name);
+
 		$r = WebAPI_Mimetype::mime ($name);
 
 		if ( preg_match ('/^text\//', $r) )
@@ -517,15 +520,82 @@ Class WebAPI {
 		if ( ! is_object ($br) )
 			$br = self::browser ();
 
-		if ( ! $mime ) {
-			if ( $br->name == 'MSIE' && $br->version == '5.5' ) {
-				$r = 'doesn/matter';
-			} else {
-				$r = 'file/unknown';
-			}
-		}
+		if ( ! $mime )
+			$r = ($br->name == 'MSIE' && $br->version == '5.5') ? 'doesn/matter' : 'file/unknown';
 
 		return $r;
+	}
+	// }}}
+
+	// {{{ +-- static public (void) mimeHeader ($name)
+	/**
+	 * 주어진 파일의 mimetype을 결정하여 다운로드 전송한다.
+	 *
+	 * Unix/Linux의 숨김 속성 파일은 처리하지 않는다.
+	 *
+	 * @access public
+	 * @param string name 다운로드 시킬 파일 경로
+	 * @param WebAPI::browser br (optional) WebAPI::browser 의 반환값.
+	 *        비워 놓으면 내부적으로 다시 확인한다.
+	 * @return void
+	 * @sinse 1.0.3
+	 */
+	static public function mimeHeader ($name, $br = null) {
+		// 숨김 파일은 전송 막음
+		if ( preg_match ('/^\./', basename ($name)) ) {
+			$err = 'Secured problems! download error' . PHP_EOL;
+			Header ('Content-Type: text/plain');
+			Header ('Content-Length: ' . strlen ($err));
+			Header ('Content-Description: WebAPI File sending API');
+
+			echo $err;
+			return;
+		}
+
+		if ( ! is_object ($br) )
+			$br = self::browser ();
+
+		$mime = self::mimetype ($name, $br);
+
+		if ( $br->name == 'MSIE' && $br->version == '5.5' )
+			Header ('Content-Transfer-Encoding: binary');
+
+		Header ('Content-Description: WebAPI File sending API');
+
+		$dnname = rawurlencode (basename ($name));
+		$dnname = preg_replace ('/\.(code|exeobj)$/', '', $dnname);
+
+		switch ($br->name) {
+			case 'Firefox' :
+				$dnname = sprintf ('filename*0*=%s', $dnname);
+				break;
+			case 'Opera' :
+				if ( $br->version > 6 ) {
+					$dnname = sprintf ('filename*0*=%s', $dnname);
+					break;
+				}
+			default:
+				$dnname = 'filename="' . $dnname . '"';
+		}
+
+		Header ('Content-Type: ' . $mime);
+		header ('Content-Length: ' . filesize ($rpath));
+
+		switch ($mime) {
+			case 'text/plain' :
+			case 'image/jpeg' :
+			case 'image/png' :
+			case 'image/gif' :
+			case 'application/pdf' :
+				break;
+			default:
+				Header ('Content-Disposition: attachment; '. $dnname);
+		}
+
+		Header ('Pragma: no-cache');
+		Header ('Expires: 0');
+
+		readfile ($name);
 	}
 	// }}}
 
