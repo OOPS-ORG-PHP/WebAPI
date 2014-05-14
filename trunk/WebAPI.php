@@ -504,10 +504,28 @@ Class WebAPI {
 	 *
 	 * @access public
 	 * @param string mimetype 정보를 확인할 파일경로
+	 * @param WebAPI::browser (optional) WebAPI::browser 의 반환값.
+	 *        비워 놓으면 내부적으로 다시 확인한다.
 	 * @return string
 	 */
-	static public function mimetype ($name) {
-		return WebAPI_Mimetype::mime ($name);
+	static public function mimetype ($name, $br = null) {
+		$r = WebAPI_Mimetype::mime ($name);
+
+		if ( preg_match ('/^text\//', $r) )
+			$r = 'text/plain';
+
+		if ( ! is_object ($br) )
+			$br = self::browser ();
+
+		if ( ! $mime ) {
+			if ( $br->name == 'MSIE' && $br->version == '5.5' ) {
+				$r = 'doesn/matter';
+			} else {
+				$r = 'file/unknown';
+			}
+		}
+
+		return $r;
 	}
 	// }}}
 
