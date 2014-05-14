@@ -520,8 +520,10 @@ Class WebAPI {
 		if ( ! is_object ($br) )
 			$br = self::browser ();
 
-		if ( ! $mime )
-			$r = ($br->name == 'MSIE' && $br->version == '5.5') ? 'doesn/matter' : 'file/unknown';
+		if ( ! $r )
+			$r = ($br->name == 'MSIE' && $br->version == '5.5') ?
+				'doesn/matter' :
+				'application/octet-stream';
 
 		return $r;
 	}
@@ -545,6 +547,7 @@ Class WebAPI {
 		if ( preg_match ('/^\./', basename ($name)) ) {
 			$err = 'Secured problems! download error' . PHP_EOL;
 			Header ('Content-Type: text/plain');
+			Header ('Accept-Ranges: bytes');
 			Header ('Content-Length: ' . strlen ($err));
 			Header ('Content-Description: WebAPI File sending API');
 
@@ -579,7 +582,8 @@ Class WebAPI {
 		}
 
 		Header ('Content-Type: ' . $mime);
-		header ('Content-Length: ' . filesize ($rpath));
+		Header ('Accept-Ranges: bytes');
+		header ('Content-Length: ' . filesize ($name));
 
 		switch ($mime) {
 			case 'text/plain' :
