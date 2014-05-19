@@ -99,7 +99,7 @@ Class WebAPI {
 	 * @param  string
 	 */
 	static public function is_injection (&$s) {
-		if ( preg_match ('/\.\.\/|[;\'"]|%(00|25|27|2e/i', $s) ) {
+		if ( preg_match ('/\.\.\/|[;\'"]|%(00|25|27|2e)/i', $s) ) {
 			return true;
 		}
 
