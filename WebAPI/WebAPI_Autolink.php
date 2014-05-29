@@ -64,8 +64,8 @@ Class WebAPI_Autolink {
 
 		self::$reg = (object) array (
 			'file' => '(\.(' . $ext . ')") target="_blank"',
-			'link' => "(http|https|ftp|telnet|news|mms):\/\/(([{$han}a-z0-9:_\-]+\.[{$han}a-z0-9,:;&#=_~%\[\]?\/.,+\-]+)([.]*[\/a-z0-9\[\]]|=[{$han}]+))",
-			'mail' => "([{$han}a-z0-9_.-]+)@([{$han}a-z0-9_-]+\.[{$han}a-z0-9._-]*[a-z]{2,3}(\?[{$han}a-z0-9=&\?;%]+|%[0-9]{2})*)"
+			'link' => "(http|https|ftp|telnet|news|mms):\/\/(([{$han}a-z0-9:_\-]+\.[\s{$han}a-z0-9,:;&#=_~%\[\]?\/.,+\-]+)([.]*[\/a-z0-9\[\]]|=[{$han}]+))",
+			'mail' => "([{$han}a-z0-9_.-]+)@([{$han}a-z0-9_-]+\.[\s{$han}a-z0-9._-]*[a-z]{2,3}(\?[{$han}a-z0-9=&\?;%]+|%[0-9]{2})*)"
 		);
 	}
 	// }}}
