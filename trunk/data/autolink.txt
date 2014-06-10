@@ -3,25 +3,33 @@
 <ul>
 	<li>이메일 링크:
 		<ul>
-			<li>redhands@linux.sarang.net</li>
-			<li>한글@linux.sarang.net</li>
+			<li>redhands@oops.org</li>
+			<li>한글@oops.org</li>
+			<li>한글@oops.org?subject=한글을 써보아요&from:A@B.com</li>
 			<li>redhands@linux</li>
 			<li><a href         
- ="mailto:redhands@linux.sarang.net">적수</a></li>
+ ="mailto:redhands@oops.org">적수</a></li>
 			<li><a href="mailto:admin@oops.org?subject=hehe&amp;body=%EB%B3%B4%EB%82%B4%EB%B4%90%EC%9A%A9%3F">김정균</a></li>
 		</ul>
 	</li>
 
 	<li>URL 링크:
 		<ul>
-			<li>http://linux.sarang.net</li>
-			<li>http://linux.sarang.net/~한글</li>
-			<li>http://linux.sarang.net/~한글/
+			<li>http://oops.org</li>
+			<li>http://oops.org/?url=http://kldp.org&mail=user@domain.com&arg=1이에요</li>
+			<li>https://picasaweb.google.com/lh/myphotos?noredirect=1 으로 이동을 합니다. Google+ 와</li>
+			<li>https://picasaweb.google.com/lh/myphotos?noredirect=1 으로 이동을 합니다. 구글+ 와</li>
+			<li>http://oops.org/~한글 URL을 링크 합니다. G</li>
+			<li>http://oops.org/사랑 합니다.gif 파일을 읽어요. Google</li>
+			<li>http://oops.org/사랑 합니다.gif?a=1 파일을 읽어요. Google</li>
+			<li>http://oops.org/사랑 합니다/a.gif?a=1 파일을 읽어요. Google</li>
+			<li>http://oops.org/~한글/
 				<p>
 				URL 에서는 한글 다음 / 로 막혀 있어야 한글로 인식함(정균)<br>
 				예:<br>
 				http://한글.oops.org/한글/aaa/한글<br>
 				http://한글.oops.org/한글/aaa/한글/<br>
+				http://한글.oops.org/한글/aaa/漢字/<br>
 				http://한글.oops.org/한글/aaa/abc<br>
 				</p>
 
@@ -37,7 +45,7 @@
 			</li>
 
 			<li><a
-					href="http://linux.sarang.net">
+					href="http://oops.org">
 					리눅스 I</a></li>
 			<li><a id="id" class="aaa" href="//kldp.org" target=_top ><img src="//kldp.org/files/88x31_02.png" style =
 
@@ -45,7 +53,7 @@
 padding: 3px;
 "></a></li>
 			<li>telnet://nownuri.net</li>
-			<li>ftp://linux.sarang.net</li>
+			<li>ftp://oops.org</li>
 			<li><img src="//work.oops.org/ansungkim/lib/Family.js">
 		</ul>
 	</li>
@@ -67,7 +75,7 @@ padding: 3px;
 
     		=
 
-			"http://linux.sarang.net">
+			"http://oops.org">
 		    리눅스 X</a>
 	</li>
 
