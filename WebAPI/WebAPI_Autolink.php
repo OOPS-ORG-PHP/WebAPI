@@ -31,7 +31,8 @@ Class WebAPI_Autolink {
 	 * @access private
 	 */
 	static private $reg_charset = array (
-		'uhan' => '\x{1100}-\x{11FF}\x{3130}-\x{318F}\x{AC00}-\x{D7AF}',
+		//'uhan' => '\x{1100}-\x{11FF}\x{3130}-\x{318F}\x{AC00}-\x{D7AF}',
+		'uhan' => '\p{Hangul}\p{Han}\p{Hiragana}\p{Katakana}',
 		'ehan' => '\xA1-\xFE',
 	);
 	static private $reg = null;
@@ -64,8 +65,8 @@ Class WebAPI_Autolink {
 
 		self::$reg = (object) array (
 			'file' => '(\.(' . $ext . ')") target="_blank"',
-			'link' => "(http|https|ftp|telnet|news|mms):\/\/(([{$han}a-z0-9:_\-]+\.[\s{$han}a-z0-9,:;&#=_~%\[\]?\/.,+\-]+)([.]*[\/a-z0-9\[\]]|=[{$han}]+))",
-			'mail' => "([{$han}a-z0-9_.-]+)@([{$han}a-z0-9_-]+\.[\s{$han}a-z0-9._-]*[a-z]{2,3}(\?[{$han}a-z0-9=&\?;%]+|%[0-9]{2})*)"
+			'link' => "(https?|s?ftp|telnet|news|mms):\/\/(([{$han}a-z0-9:_\-]+\.[{$han}a-z0-9,:;&#=_~%\[\]?\/.,+\-]+)([.]*[\/a-z0-9\[\]]|=[{$han}]+))",
+			'mail' => "([{$han}a-z0-9_.-]+)@([{$han}a-z0-9_-]+\.[{$han}a-z0-9._-]*[a-z]{2,3}(\?[\s{$han}a-z0-9=&\?;%]+|%[0-9]{2})*)"
 		);
 	}
 	// }}}
@@ -82,6 +83,7 @@ Class WebAPI_Autolink {
 	 */
 	private function nomalize (&$v) {
 		$v = preg_replace ("/\r?\n/", "\n", $v);
+		$um = self::$utf8 ? 'u' : '';
 
 		$src = array (
 			'/<[\s]*(a|img)[\s]*[^>]+>/i',
@@ -104,6 +106,32 @@ Class WebAPI_Autolink {
 				$src[] = '/[\s]+>/';
 				$des[] = '>';
 				return preg_replace ($src, $des, $matches[0]);
+			},
+			$v
+		);
+
+		$han = self::$utf8 ? self::$reg_charset['uhan'] : self::$reg_charset['han'];
+
+		// URL 내의 공백문자 처리
+		$src = array (
+			"!((https?|s?ftp|telnet|news|mms)://[^</]+)(/[^</]+/)!im",
+			"!((https?|s?ftp|telnet|news|mms)://.*/)([{$han}a-z0-9,_-]+[\s]+[[{$han}a-z0-9,_-]*\.(jpg|png|gif|psd|txt|html?|(doc|xls|ppt)x?))!{$um}im",
+		);
+		$v = preg_replace_callback (
+			$src,
+			function ($matches) {
+				$org = trim ($matches[3]);
+				if ( ! ($len = strlen ($org)) )
+					return '';
+
+				$new = '';
+				for ( $i=0; $i<$len; $i++ ) {
+					if ( $org[$i] == ' ' || $org[$i] == "\t" )
+						$new .= '%20';
+					else
+						$new .= $org[$i];
+				}
+				return $matches[1] . $new;
 			},
 			$v
 		);
