@@ -87,7 +87,7 @@ Class WebAPI_Autolink {
 
 		$src = array (
 			'/<[\s]*(a|img)[\s]*[^>]+>/i',
-			'/(style|src|codebase|pluginspace|background)[\s]*=[\s]*[\'\"][^\'"]+[\'"]/i'
+			'/(style|action|src|codebase|pluginspace|background)[\s]*=[\s]*[\'\"][^\'"]+[\'"]/i'
 		);
 
 		$v = preg_replace_callback (
@@ -180,7 +180,7 @@ Class WebAPI_Autolink {
 		$des[] = 'href="mailto:\\2#-#\\3">';
 		# 1 라인에 중복 되어 있을 수 있으므로 중복되어 사용되지 않는
 		# 태크들로 나누어 준다.
-		$src[] = "/<([^>]*)(background|src)[\s]*=[\"'\s]*({$reg->link})[\"']*/${um}i";
+		$src[] = "/<([^>]*)(background|src|action)[\s]*=[\"'\s]*({$reg->link})[\"']*/${um}i";
 		$des[] = '<\\1\\2="\\4_orig://\\5"';
 		$src[] = "/<([^>]*)(codebase|pluginspage|value)[\s]*=[\"'\s]*({$reg->link})[\"']*/${um}i";
 		$des[] = '<\\1\\2="\\4_orig://\\5"';
