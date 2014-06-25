@@ -676,7 +676,7 @@ Class WebAPI {
 
 	// {{{ +-- static public (string) json_encode ($text, $nopretty = false)
 	/**
-	 * utf8 conflict 를 해결한 json encode wrapper
+	 * utf8 conflict 및 binary data 를 해결한 json encode wrapper
 	 *
 	 * @access public
 	 * @return string
@@ -687,6 +687,26 @@ Class WebAPI {
 	 */
 	static public function json_encode ($text, $nopretty = false) {
 		return WebAPI_JSON::encode ($text, $nopretty);
+	}
+	// }}}
+
+	// {{{ +-- static public (string) json_decode ($text)
+	/**
+	 * utf8 conflict 및 binary data 를 해결한 json decode wrapper
+	 *
+	 * @access public
+	 * @return object
+	 * @param string json string data
+	 * @param bool   (optional) When TRUE, returned objects will be converted
+	 *               into associative arrays.
+	 * @param int    (optional) User specified recursion depth (default: 512)
+	 * @param int    (optional) Bitmask of JSON decode options. Currently only
+	 *               JSON_BIGINT_AS_STRING is supported (default is
+	 *               to cast large integers as floats)
+	 * @since 1.0.5
+	 */
+	static public function json_decode ($data, $assoc = false, $depth = 512, $options = 0) {
+		return WebAPI_JSON::decode ($data, $assoc, $depth, $options);
 	}
 	// }}}
 }
