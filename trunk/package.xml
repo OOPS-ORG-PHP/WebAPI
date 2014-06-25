@@ -12,9 +12,9 @@
 		<active>yes</active>
 	</lead>
 	<date>2014-06-26</date>
-	<time>01:47:00</time>
+	<time>01:49:36</time>
 	<version>
-		<release>1.0.5</release>
+		<release>1.0.6</release>
 		<api>1.0.0</api>
 	</version>
 	<stability>
@@ -22,9 +22,7 @@
 		<api>stable</api>
 	</stability>
 	<license>BSD</license>
-	<notes>* [WebAPI::autolink] fixed form action property
-* [WebAPI::json_encode] support binary safe
-* [WebAPI::json_decode} added with new api
+	<notes>
 </notes>
 	<contents>
 		<dir name="/">
@@ -68,6 +66,20 @@
 	</dependencies>
 	<phprelease />
 	<changelog>
+		<release>
+			<version>
+				<release>1.0.6</release>
+				<api>1.0.0</api>
+			</version>
+			<stability>
+				<release>stable</release>
+				<api>stable</api>
+			</stability>
+			<date>2014-06-26</date>
+			<license>BSD</license>
+			<notes>
+</notes>
+		</release>
 		<release>
 			<version>
 				<release>1.0.5</release>
