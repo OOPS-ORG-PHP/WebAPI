@@ -46,9 +46,31 @@ Class WebAPI_JSON {
 	}
 	// }}}
 
+	// {{{ +-- static private (mixed) unnormalize ($v)
+	/**
+	 * url encode 되어 있는 데이터를 url decode 처리
+	 */
+	static private function unnormalize ($var, $assoc = true) {
+		if ( ! is_object ($var) && ! is_array ($var) )
+			return urldecode ($var);
+
+		foreach ( $var as $key => $val ) {
+			if ( is_object ($val) || is_array ($val) )
+				$buf[urldecode ($key)] = self::unnormalize ($val, $assoc);
+			else
+				$buf[urldecode ($key)] = urldecode ($val);
+		}
+
+		if ( $assoc )
+			return $buf;
+
+		return (object) $buf;
+	}
+	// }}}
+
 	// {{{ +-- static public (string) encode ($data, $nopretty = false)
 	/**
-	 * utf8 conflict 를 해결한 json encode wrapper
+	 * utf8 conflict 및 binary data 를 해결한 json encode wrapper
 	 *
 	 * @access public
 	 * @return string
@@ -65,6 +87,9 @@ Class WebAPI_JSON {
 				return '';
 		}
 
+		// for binary data
+		$data = self::normalize ($data);
+
 		// since php 5.4.0
 		if ( defined ('JSON_UNESCAPED_UNICODE') ) {
 			$opt = JSON_NUMERIC_CHECK | JSON_UNESCAPED_UNICODE;
@@ -74,8 +99,26 @@ Class WebAPI_JSON {
 		}
 
 		// under php 5.3.x
-		$data = self::nomalize ($data);
-		return urldecode (json_encode ($data, JSON_NUMERIC_CHECK));
+		return json_encode ($data, JSON_NUMERIC_CHECK);
+	}
+	// }}}
+
+	// {{{ +-- static public (string) decode ($data)
+	/**
+	 * utf8 conflict 및 binary data 를 해결한 json encode wrapper
+	 *
+	 * @access public
+	 * @return stdClass
+	 * @param string $data json data
+	 * @param int    (optional) User specified recursion depth (default: 512)
+	 * @param int    (optional) Bitmask of JSON decode options. Currently only
+	 *               JSON_BIGINT_AS_STRING is supported (default is
+	 *               to cast large integers as floats)
+	 * @since 1.0.5
+	 */
+	static public function decode ($data, $assoc = false, $depth = 512, $options = 0) {
+		$data = json_decode ($data, $assoc, $depth, $options);
+		return self::unnormalize ($data, $assoc);
 	}
 	// }}}
 }
