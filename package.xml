@@ -1,133 +1,137 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<package version="2.0" packagerversion="1.7.2" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
-	<!-- $Id$ -->
-	<name>WebAPI</name>
-	<channel>pear.oops.org</channel>
-	<summary>String API class for WEB</summary>
-	<description>Provides String parser that is used in the WEB</description>
-	<lead>
-		<name>JoungKyun.Kim</name>
-		<user>joungkyun</user>
-		<email>joungkyun@gmail.com</email>
-		<active>yes</active>
-	</lead>
-	<date>2014-06-26</date>
-	<time>01:47:00</time>
-	<version>
-		<release>1.0.5</release>
-		<api>1.0.0</api>
-	</version>
-	<stability>
-		<release>stable</release>
-		<api>stable</api>
-	</stability>
-	<license>BSD</license>
-	<notes>* [WebAPI::autolink] fixed form action property
+<package packagerversion="1.9.4" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
+ <name>WebAPI</name>
+ <channel>pear.oops.org</channel>
+ <summary>String API class for WEB</summary>
+ <description>Provides String parser that is used in the WEB</description>
+ <lead>
+  <name>JoungKyun.Kim</name>
+  <user>joungkyun</user>
+  <email>joungkyun@gmail.com</email>
+  <active>yes</active>
+ </lead>
+ <date>2014-06-26</date>
+ <time>01:47:00</time>
+ <version>
+  <release>1.0.5</release>
+  <api>1.0.0</api>
+ </version>
+ <stability>
+  <release>stable</release>
+  <api>stable</api>
+ </stability>
+ <license>BSD</license>
+ <notes>
+* [WebAPI::autolink] fixed form action property
 * [WebAPI::json_encode] support binary safe
 * [WebAPI::json_decode} added with new api
-</notes>
-	<contents>
-		<dir name="/">
-			<file role="php" md5sum="ea48ea05b535e3e5e1a0f5d17390fc62" name="WebAPI.php" />
-			<file role="php" md5sum="ebc49591bc719bf6f92ee825f1cbc75b" name="WebAPI/WebAPI_Autolink.php" />
-			<file role="php" md5sum="855108694384d798a8929cd2756d19ae" name="WebAPI/WebAPI_Browser.php" />
-			<file role="php" md5sum="b48144d682035f25cb58478bb3bcdb55" name="WebAPI/WebAPI_Filter.php" />
-			<file role="php" md5sum="61cb8f545a781c5d9b4b611b5266c0fc" name="WebAPI/WebAPI_JSON.php" />
-			<file role="php" md5sum="45cf983e22d304670ae24005936fc192" name="WebAPI/WebAPI_Mimetype.php" />
-			<file role="php" md5sum="8e1ee7bc299e836b9302fd8eeaa77367" name="WebAPI/pure_mimetype.php" />
-		</dir>
-	</contents>
-	<dependencies>
-		<required>
-			<php>
-				<min>5.1.0</min>
-			</php>
-			<pearinstaller>
-				<min>1.4.3</min>
-			</pearinstaller>
-			<package>
-				<name>mcrypt</name>
-				<channel>php</channel>
-			</package>
-			<package>
-				<name>myException</name>
-				<channel>pear.oops.org</channel>
-				<min>1.0.1</min>
-			</package>
-			<package>
-				<name>HTTPRelay</name>
-				<channel>pear.oops.org</channel>
-				<min>1.0.2</min>
-			</package>
-			<package>
-				<name>ipcalc</name>
-				<channel>pear.oops.org</channel>
-				<min>1.0.2</min>
-			</package>
-		</required>
-	</dependencies>
-	<phprelease />
-	<changelog>
-		<release>
-			<version>
-				<release>1.0.5</release>
-				<api>1.0.0</api>
-			</version>
-			<stability>
-				<release>stable</release>
-				<api>stable</api>
-			</stability>
-			<date>2014-06-26</date>
-			<license>BSD</license>
-			<notes>* [WebAPI::autolink] fixed form action property
+ </notes>
+ <contents>
+  <dir name="/">
+   <file md5sum="ea48ea05b535e3e5e1a0f5d17390fc62" name="WebAPI.php" role="php" />
+   <file md5sum="ebc49591bc719bf6f92ee825f1cbc75b" name="WebAPI/WebAPI_Autolink.php" role="php" />
+   <file md5sum="855108694384d798a8929cd2756d19ae" name="WebAPI/WebAPI_Browser.php" role="php" />
+   <file md5sum="b48144d682035f25cb58478bb3bcdb55" name="WebAPI/WebAPI_Filter.php" role="php" />
+   <file md5sum="61cb8f545a781c5d9b4b611b5266c0fc" name="WebAPI/WebAPI_JSON.php" role="php" />
+   <file md5sum="45cf983e22d304670ae24005936fc192" name="WebAPI/WebAPI_Mimetype.php" role="php" />
+   <file md5sum="8e1ee7bc299e836b9302fd8eeaa77367" name="WebAPI/pure_mimetype.php" role="php" />
+  </dir>
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>5.1.0</min>
+   </php>
+   <pearinstaller>
+    <min>1.4.3</min>
+   </pearinstaller>
+   <package>
+    <name>mcrypt</name>
+    <channel>php</channel>
+   </package>
+   <package>
+    <name>myException</name>
+    <channel>pear.oops.org</channel>
+    <min>1.0.1</min>
+   </package>
+   <package>
+    <name>HTTPRelay</name>
+    <channel>pear.oops.org</channel>
+    <min>1.0.2</min>
+   </package>
+   <package>
+    <name>ipcalc</name>
+    <channel>pear.oops.org</channel>
+    <min>1.0.2</min>
+   </package>
+  </required>
+ </dependencies>
+ <phprelease />
+ <changelog>
+  <release>
+   <version>
+    <release>1.0.5</release>
+    <api>1.0.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2014-06-26</date>
+   <license>BSD</license>
+   <notes>
+* [WebAPI::autolink] fixed form action property
 * [WebAPI::json_encode] support binary safe
 * [WebAPI::json_decode} added with new api
-</notes>
-		</release>
-		<release>
-			<version>
-				<release>1.0.4</release>
-				<api>1.0.0</api>
-			</version>
-			<stability>
-				<release>stable</release>
-				<api>stable</api>
-			</stability>
-			<date>2014-06-10</date>
-			<license>BSD</license>
-			<notes>* fixed WebAPI::autolink - wrong link includes blank
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>1.0.4</release>
+    <api>1.0.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2014-06-10</date>
+   <license>BSD</license>
+   <notes>
+* fixed WebAPI::autolink - wrong link includes blank
 * WebAPI::autolink - support japanese, chinese utf8 characters
-</notes>
-		</release>
-		<release>
-			<version>
-				<release>1.0.3</release>
-				<api>1.0.0</api>
-			</version>
-			<stability>
-				<release>stable</release>
-				<api>stable</api>
-			</stability>
-			<date>2014-05-19</date>
-			<license>BSD</license>
-			<notes>* Add WebAPI::json_encode by http://jokbo.oops.org/
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>1.0.3</release>
+    <api>1.0.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2014-05-19</date>
+   <license>BSD</license>
+   <notes>
+* Add WebAPI::json_encode by http://jokbo.oops.org/
 * enhanced WebAPI::mimetype
 * added WebAPI::mimeHeader api
 * fiexed WebAPI::is_inject regex compile error
-</notes>
-		</release>
-		<release>
-			<version>
-				<release>1.0.2</release>
-				<api>1.0.0</api>
-			</version>
-			<stability>
-				<release>stable</release>
-				<api>stable</api>
-			</stability>
-			<date>2014-01-25</date>
-			<license>BSD</license>
-			<notes>* fixed that exists %20 escaped character on email link WebAPI_Autolink::execute
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>1.0.2</release>
+    <api>1.0.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2014-01-25</date>
+   <license>BSD</license>
+   <notes>
+* fixed that exists %20 escaped character on email link WebAPI_Autolink::execute
 * fixed undeclare class on WebAPI::filter_context
 * fixed undeclare class on WebAPI::filter_context_file
 * add WebAPI::browser method
@@ -135,36 +139,38 @@
 * permit youtube iframe on WebAPI::xss method
 * fixed broken rsrc properity on WebAPI::autolink method
 * fixed broken value of param tag WebAPI::autolink method
-</notes>
-		</release>
-		<release>
-			<version>
-				<release>1.0.1</release>
-				<api>1.0.0</api>
-			</version>
-			<stability>
-				<release>stable</release>
-				<api>stable</api>
-			</stability>
-			<date>2013-10-28</date>
-			<license>BSD</license>
-			<notes>* fixed pcre compile error of is_hangul method
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>1.0.1</release>
+    <api>1.0.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2013-10-28</date>
+   <license>BSD</license>
+   <notes>
+* fixed pcre compile error of is_hangul method
 * add substr method
-</notes>
-		</release>
-		<release>
-			<version>
-				<release>1.0.0</release>
-				<api>1.0.0</api>
-			</version>
-			<stability>
-				<release>stable</release>
-				<api>stable</api>
-			</stability>
-			<date>2013-10-14</date>
-			<license>BSD</license>
-			<notes>* release 1.0.0
-</notes>
-		</release>
-	</changelog>
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>1.0.0</release>
+    <api>1.0.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2013-10-14</date>
+   <license>BSD</license>
+   <notes>
+* release 1.0.0
+   </notes>
+  </release>
+ </changelog>
 </package>
