@@ -75,10 +75,11 @@ Class WebAPI_JSON {
 	 * @access public
 	 * @return string
 	 * @param mixed encode할 변수
-	 * @param bool pretty 출력 여부. 기본값 false이며 이는 pretty 출력
-	 *             을 의미한다. pretty 인자는 php 5.4 부터 지원한다.
+	 * @param bool (optional) pretty 출력 여부. 기본값 false이며 이는 pretty 출력
+	 *             을 의미한다. pretty 인자는 php 5.4 부터 지원한다. [기본값 false]
+	 * @param bool (optional) binary safe를 위한 normalize를 할지 여부 [기본값 true]
 	 */
-	static public function encode ($data, $nopretty = false) {
+	static public function encode ($data, $nopretty = false, $normal = true) {
 		if ( is_object ($data) || is_array ($data) ) {
 			if ( ! count ($data) )
 				return json_encode (array ());
@@ -87,8 +88,10 @@ Class WebAPI_JSON {
 				return '';
 		}
 
-		// for binary data
-		$data = self::normalize ($data);
+		if ( $normal ) {
+			// for binary data
+			$data = self::normalize ($data);
+		}
 
 		// since php 5.4.0
 		if ( defined ('JSON_UNESCAPED_UNICODE') ) {
@@ -99,7 +102,11 @@ Class WebAPI_JSON {
 		}
 
 		// under php 5.3.x
-		return json_encode ($data, JSON_NUMERIC_CHECK);
+		if ( $normal )
+			return json_encode ($data, JSON_NUMERIC_CHECK);
+
+		$data = self::nomalize ($data);
+		return urldecode (json_encode ($data, JSON_NUMERIC_CHECK));
 	}
 	// }}}
 

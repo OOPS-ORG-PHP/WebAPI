@@ -682,11 +682,12 @@ Class WebAPI {
 	 * @return string
 	 * @param mixed encode할 변수
 	 * @param bool pretty 출력 여부. 기본값 false이며 이는 pretty 출력
-	 *             을 의미한다. pretty 인자는 php 5.4 부터 지원한다.
+	 *             을 의미한다. pretty 인자는 php 5.4 부터 지원한다. [기본값 false]
+	 * @param bool (optional) binary safe를 위한 normalize를 할지 여부 [기본값 true]
 	 * @since 1.0.3
 	 */
-	static public function json_encode ($text, $nopretty = false) {
-		return WebAPI_JSON::encode ($text, $nopretty);
+	static public function json_encode ($text, $nopretty = false, $normal = true) {
+		return WebAPI_JSON::encode ($text, $nopretty, $normal);
 	}
 	// }}}
 
