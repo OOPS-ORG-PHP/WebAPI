@@ -12,9 +12,9 @@
 		<active>yes</active>
 	</lead>
 	<date>2015-06-09</date>
-	<time>02:21:25</time>
+	<time>02:59:05</time>
 	<version>
-		<release>1.0.8</release>
+		<release>1.0.9</release>
 		<api>1.0.0</api>
 	</version>
 	<stability>
@@ -22,14 +22,12 @@
 		<api>stable</api>
 	</stability>
 	<license>BSD</license>
-	<notes>* [WebAPI::is_email] support check email parameter
-* [WebAPI::is_email] support "name &lt;email&gt;" format
-* [WebAPI::is_email] support google fake user 'user+asdfasdf@domain.com'
+	<notes>* [WebAPI::is_email] support user@[IPv4] format
 </notes>
 	<contents>
 		<dir name="/">
 			<file role="php" md5sum="0b091a4a28cdfc0c934aed561a34689f" name="WebAPI.php" />
-			<file role="php" md5sum="aed268aff625d91f49e161925397d79c" name="WebAPI/WebAPI_Autolink.php" />
+			<file role="php" md5sum="acc6ac496292defd074b96f4e0497169" name="WebAPI/WebAPI_Autolink.php" />
 			<file role="php" md5sum="578b626806a7b00af07197679ecc8e1d" name="WebAPI/WebAPI_Browser.php" />
 			<file role="php" md5sum="7208edf6d6b204bdfa103185dd2def8d" name="WebAPI/WebAPI_Filter.php" />
 			<file role="php" md5sum="386e064717fea29cef81fef6ab04e04b" name="WebAPI/WebAPI_JSON.php" />
@@ -70,6 +68,20 @@
 	<changelog>
 		<release>
 			<version>
+				<release>1.0.9</release>
+				<api>1.0.0</api>
+			</version>
+			<stability>
+				<release>stable</release>
+				<api>stable</api>
+			</stability>
+			<date>2015-06-09</date>
+			<license>BSD</license>
+			<notes>* [WebAPI::is_email] support user@[IPv4] format
+</notes>
+		</release>
+		<release>
+			<version>
 				<release>1.0.8</release>
 				<api>1.0.0</api>
 			</version>
@@ -79,7 +91,9 @@
 			</stability>
 			<date>2015-06-09</date>
 			<license>BSD</license>
-			<notes>
+			<notes>* [WebAPI::is_email] support check email parameter
+* [WebAPI::is_email] support "name + email" format
+* [WebAPI::is_email] support google fake user 'user+asdfasdf@domain.com'
 </notes>
 		</release>
 		<release>

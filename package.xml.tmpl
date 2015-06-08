@@ -14,7 +14,7 @@
 	<date>@curdate@</date>
 	<time>@curtime@</time>
 	<version>
-		<release>1.0.8</release>
+		<release>1.0.9</release>
 		<api>1.0.0</api>
 	</version>
 	<stability>
@@ -22,9 +22,7 @@
 		<api>stable</api>
 	</stability>
 	<license>BSD</license>
-	<notes>* [WebAPI::is_email] support check email parameter
-* [WebAPI::is_email] support "name &lt;email&gt;" format
-* [WebAPI::is_email] support google fake user 'user+asdfasdf@domain.com'
+	<notes>* [WebAPI::is_email] support user@[IPv4] format
 </notes>
 	<contents>
 		<dir name="/">
@@ -70,7 +68,7 @@
 	<changelog>
 		<release>
 			<version>
-				<release>1.0.8</release>
+				<release>1.0.9</release>
 				<api>1.0.0</api>
 			</version>
 			<stability>
@@ -79,7 +77,23 @@
 			</stability>
 			<date>@curdate@</date>
 			<license>BSD</license>
-			<notes>
+			<notes>* [WebAPI::is_email] support user@[IPv4] format
+</notes>
+		</release>
+		<release>
+			<version>
+				<release>1.0.8</release>
+				<api>1.0.0</api>
+			</version>
+			<stability>
+				<release>stable</release>
+				<api>stable</api>
+			</stability>
+			<date>2015-06-09</date>
+			<license>BSD</license>
+			<notes>* [WebAPI::is_email] support check email parameter
+* [WebAPI::is_email] support "name + email" format
+* [WebAPI::is_email] support google fake user 'user+asdfasdf@domain.com'
 </notes>
 		</release>
 		<release>
@@ -91,7 +105,7 @@
 				<release>stable</release>
 				<api>stable</api>
 			</stability>
-			<date>@curdate@</date>
+			<date>2015-06-09</date>
 			<license>BSD</license>
 			<notes>* [WebAPI::is_email] fixed unknown modifier error
 * [WebAPI::is_email] fixed case sensitive
