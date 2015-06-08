@@ -236,7 +236,7 @@ Class WebAPI_Autolink {
 	static public function is_email (&$v) {
 		self::set_regex_template ();
 
-		if ( ! preg_match ('/^' . self::$reg->mail . '$/', $v) )
+		if ( ! preg_match ('/^' . self::$reg->mail . '$/i', $v) )
 			return false;
 
 		// email의 도메인이 MX record가 있거나 inverse domain
@@ -261,7 +261,7 @@ Class WebAPI_Autolink {
 		if ( ! self::is_protocol ($v) )
 			return false;
 
-		if ( preg_match ('/^' . self::$reg->link . '$/', $v) )
+		if ( preg_match ('/^' . self::$reg->link . '$/i', $v) )
 			return true;
 
 		return false;
