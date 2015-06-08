@@ -12,9 +12,9 @@
 		<active>yes</active>
 	</lead>
 	<date>2015-06-09</date>
-	<time>01:27:03</time>
+	<time>02:15:25</time>
 	<version>
-		<release>1.0.7</release>
+		<release>1.0.8</release>
 		<api>1.0.0</api>
 	</version>
 	<stability>
@@ -22,9 +22,7 @@
 		<api>stable</api>
 	</stability>
 	<license>BSD</license>
-	<notes>* [WebAPI::is_email] fixed unknown modifier error
-* [WebAPI::is_email] fixed case sensitive
-* [WebAPI::is_url] fixed case sensitive
+	<notes>
 </notes>
 	<contents>
 		<dir name="/">
@@ -68,6 +66,20 @@
 	</dependencies>
 	<phprelease />
 	<changelog>
+		<release>
+			<version>
+				<release>1.0.8</release>
+				<api>1.0.0</api>
+			</version>
+			<stability>
+				<release>stable</release>
+				<api>stable</api>
+			</stability>
+			<date>2015-06-09</date>
+			<license>BSD</license>
+			<notes>
+</notes>
+		</release>
 		<release>
 			<version>
 				<release>1.0.7</release>
