@@ -194,6 +194,22 @@ Class WebAPI {
 	/**
 	 * 주어진 이메일이 valid한지 확인
 	 *
+	 * 도메인 파트의 경우 MX record가 있거나 또는 inverse domain이 설정되어 있어야
+	 * true로 판별한다. 도메인 파트가 IP주소일 경우에는 MX record나 inverse domain
+	 * 을 체크하지 않는다.
+	 *
+	 * 다음의 형식을 체크한다.
+	 *
+	 *     - id@domain.com
+	 *     - id@[IPv4]
+	 *     - name <id@domain.com>
+	 *     - id@domain.com?subject=title&cc=...
+	 *     - name <id@domain.com?subject=title&cc=...>
+	 *
+	 * 이메일 parameter가 존재할 경우에는, CC, BCC, SUBJECT, BODY 만 허가가 된다. 만약,
+	 * 이메일 parameter를 체크하고 싶지 않다면, 이 method에 넘기는 값에서 parameter를
+	 * 제거하고 넘겨야 한다.
+	 *
 	 * @access public
 	 * @return boolean
 	 * @param string check email address
