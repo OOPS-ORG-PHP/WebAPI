@@ -225,7 +225,7 @@ Class WebAPI_Autolink {
 	}
 	// }}}
 
-	// {{{ +-- static public (boolean) is_email (&$v)
+	// {{{ +-- static public (boolean) is_email ($v)
 	/**
 	 * 주어진 이메일이 valid한지 확인.
 	 *
