@@ -235,11 +235,11 @@ Class WebAPI_Autolink {
 	 *
 	 * 다음의 형식을 체크한다.
 	 *
-	 * id@domain.com
-	 * id@[IPv4]
-	 * name <id@domain.com>
-	 * id@domain.com?subject=title&cc=...
-	 * name <id@domain.com?subject=title&cc=...>
+	 *     - id@domain.com
+	 *     - id@[IPv4]
+	 *     - name <id@domain.com>
+	 *     - id@domain.com?subject=title&cc=...
+	 *     - name <id@domain.com?subject=title&cc=...>
 	 *
 	 * 이메일 parameter가 존재할 경우에는, CC, BCC, SUBJECT, BODY 만 허가가 된다. 만약,
 	 * 이메일 parameter를 체크하고 싶지 않다면, 이 method에 넘기는 값에서 parameter를
