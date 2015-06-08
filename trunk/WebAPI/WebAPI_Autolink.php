@@ -227,11 +227,16 @@ Class WebAPI_Autolink {
 
 	// {{{ +-- static public (boolean) is_email (&$v)
 	/**
-	 * 주어진 이메일이 valid한지 확인
+	 * 주어진 이메일이 valid한지 확인.
+	 *
+	 * 도메인 파트의 경우 MX record가 있거나 또는 inverse domain이 설정되어 있어야
+	 * true로 판별한다. 도메인 파트가 IP주소일 경우에는 MX record나 inverse domain
+	 * 을 체크하지 않는다.
 	 *
 	 * 다음의 형식을 체크한다.
 	 *
 	 * id@domain.com
+	 * id@[IPv4]
 	 * name <id@domain.com>
 	 * id@domain.com?subject=title&cc=...
 	 * name <id@domain.com?subject=title&cc=...>
@@ -283,12 +288,25 @@ Class WebAPI_Autolink {
 			}
 		}
 
+		// check id@[1.1.1.1]
+		$ip = false;
+		if ( preg_match ('/^([^@]+)@\[([0-9.]+)\]$/', $v, $m) ) {
+			$lv = sprintf ('%lu', ip2long ($m[2]));
+			if ( ! $lv || $lv < 16777216 )
+				return false;
+			$ip = true;
+			$v = $m[1] . '@google.com';
+		}
+
 		if ( ! preg_match ('/^' . self::$reg->mail . '$/i', $v) )
 			return false;
 
+		if ( $ip === true )
+			return true;
+
 		// email의 도메인이 MX record가 있거나 inverse domain
 		// 셋팅이 되어 있어야 valid 처리한다.
-		list ($user, $host) = explode ('@', $v);
+		list ($user, $host) = preg_split ('/@/', $v);
 		if ( checkdnsrr ($host, 'MX') || gethostbynamel ($host) )
 			return true;
 
