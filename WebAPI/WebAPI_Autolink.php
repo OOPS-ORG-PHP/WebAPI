@@ -229,12 +229,59 @@ Class WebAPI_Autolink {
 	/**
 	 * 주어진 이메일이 valid한지 확인
 	 *
+	 * 다음의 형식을 체크한다.
+	 *
+	 * id@domain.com
+	 * name <id@domain.com>
+	 * id@domain.com?subject=title&cc=...
+	 * name <id@domain.com?subject=title&cc=...>
+	 *
+	 * 이메일 parameter가 존재할 경우에는, CC, BCC, SUBJECT, BODY 만 허가가 된다. 만약,
+	 * 이메일 parameter를 체크하고 싶지 않다면, 이 method에 넘기는 값에서 parameter를
+	 * 제거하고 넘겨야 한다.
+	 *
 	 * @access public
 	 * @return boolean
 	 * @param string check email address
 	 */
-	static public function is_email (&$v) {
+	static public function is_email ($v) {
 		self::set_regex_template ();
+
+		$v = trim ($v);
+
+		// check format "name" <id@domain.com>
+		if ( preg_match ('/^[^<]+[\s]*<([^@]+@[^>]+)>$/', $v, $m) )
+			$v = $m[1];
+
+		// check sub strings
+		$m = preg_split ('/\?/', $v);
+		if ( count ($m) > 1 ) {
+			if ( self::is_email ($m[0]) === false )
+				return false;
+
+			parse_str (substr (strstr ($v, '?'), 1), $sub);
+			$v = $m[0];
+
+			// allow CC, BCC, BODY, SUBJECT
+			foreach ( $sub as $key => $val ) {
+				$key = strtolower ($key);
+				switch ($key) {
+					case 'cc' :
+					case 'bcc' :
+						$emails = preg_split ('/,/', $val);
+						foreach ( $emails as $email ) {
+							if ( self::is_email (trim ($email)) === false )
+								return false;
+						}
+						break;
+					case 'body' :
+					case 'subject' :
+						break;
+					default :
+						return false;
+				}
+			}
+		}
 
 		if ( ! preg_match ('/^' . self::$reg->mail . '$/i', $v) )
 			return false;
