@@ -12,7 +12,7 @@
 		<active>yes</active>
 	</lead>
 	<date>2015-08-05</date>
-	<time>08:48:13</time>
+	<time>08:54:35</time>
 	<version>
 		<release>1.0.11</release>
 		<api>1.0.0</api>
@@ -28,7 +28,7 @@
 		<dir name="/">
 			<file role="php" md5sum="8220e1bfa3397cfb0fbf75fbb194cf73" name="WebAPI.php" />
 			<file role="php" md5sum="263124ad0fa827f2049cd6b2fafc3950" name="WebAPI/WebAPI_Autolink.php" />
-			<file role="php" md5sum="b940f58b85d94a7f3a739eb736aab673" name="WebAPI/WebAPI_Browser.php" />
+			<file role="php" md5sum="1fc3fda9146a8948ee3c008ab73858ba" name="WebAPI/WebAPI_Browser.php" />
 			<file role="php" md5sum="7208edf6d6b204bdfa103185dd2def8d" name="WebAPI/WebAPI_Filter.php" />
 			<file role="php" md5sum="386e064717fea29cef81fef6ab04e04b" name="WebAPI/WebAPI_JSON.php" />
 			<file role="php" md5sum="cedd7e9304ca07ada2d73d3bb623261a" name="WebAPI/WebAPI_Mimetype.php" />

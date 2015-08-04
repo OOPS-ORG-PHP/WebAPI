@@ -52,7 +52,7 @@ Class WebAPI_Browser {
 
 		else if ( preg_match ('/Edge\//', $ua) ) {
 			$br->name = 'Edge';
-			if ( preg_match ('/Edge/([0-9]+(\.[0-9]+)?)/', $ua, $m) ) {
+			if ( preg_match ('/Edge\/([0-9]+(\.[0-9]+)?)/', $ua, $m) ) {
 				$br->version = $m[1];
 				$br->engine = 'Spartan';
 			}
