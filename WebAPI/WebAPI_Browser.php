@@ -50,6 +50,14 @@ Class WebAPI_Browser {
 				$br->version = $m[1];
 		}
 
+		else if ( preg_match ('/Edge\//', $ua) ) {
+			$br->name = 'Edge';
+			if ( preg_match ('/Edge/([0-9]+(\.[0-9]+)?)/', $ua, $m) ) {
+				$br->version = $m[1];
+				$br->engine = 'Spartan';
+			}
+		}
+
 		else if ( preg_match ('/Chrome|CriOS|CrMo/', $ua) ) {
 			$br->name = 'Chrome';
 			if ( preg_match ('/(Chrome|CriOS|CrMo)\/([0-9]+(\.[0-9]+)?)/', $ua, $m) ) {
@@ -304,6 +312,9 @@ Class WebAPI_Browser {
 					break;
 				case '6.3' :
 					$v->os = '8.1';
+					break;
+				case '10.0' :
+					$v->os = '10';
 					break;
 				default :
 					$v->os = 'NT';
