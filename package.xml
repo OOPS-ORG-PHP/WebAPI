@@ -12,9 +12,9 @@
 		<active>yes</active>
 	</lead>
 	<date>2015-08-05</date>
-	<time>08:45:45</time>
+	<time>08:48:13</time>
 	<version>
-		<release>1.0.10</release>
+		<release>1.0.11</release>
 		<api>1.0.0</api>
 	</version>
 	<stability>
@@ -22,7 +22,7 @@
 		<api>stable</api>
 	</stability>
 	<license>BSD</license>
-	<notes>* [WebAPI::browser] support Windows 10 and Microsoft Edge
+	<notes>
 </notes>
 	<contents>
 		<dir name="/">
@@ -66,6 +66,20 @@
 	</dependencies>
 	<phprelease />
 	<changelog>
+		<release>
+			<version>
+				<release>1.0.11</release>
+				<api>1.0.0</api>
+			</version>
+			<stability>
+				<release>stable</release>
+				<api>stable</api>
+			</stability>
+			<date>2015-08-05</date>
+			<license>BSD</license>
+			<notes>
+</notes>
+		</release>
 		<release>
 			<version>
 				<release>1.0.10</release>
