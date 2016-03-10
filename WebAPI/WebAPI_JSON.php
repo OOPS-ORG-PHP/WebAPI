@@ -105,7 +105,7 @@ Class WebAPI_JSON {
 		if ( $normal )
 			return json_encode ($data, JSON_NUMERIC_CHECK);
 
-		$data = self::nomalize ($data);
+		$data = self::normalize ($data);
 		return urldecode (json_encode ($data, JSON_NUMERIC_CHECK));
 	}
 	// }}}
