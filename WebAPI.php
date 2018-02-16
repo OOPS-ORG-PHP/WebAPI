@@ -6,14 +6,13 @@
  * WebAPI 패키지는 WEB에서 사용되는 문자열 관련 API를 제공한다.
  *
  * 예제:
- * {@example pear_HTTPRelay/tests/test.php}
+ * {@example HTTPRelay/tests/test.php}
  *
  * @category    HTTP
  * @package     WebAPI
  * @author      JoungKyun.Kim <http://oops.org>
- * @copyright   (c) 2015 OOPS.org
+ * @copyright   (c) 2018, OOPS.org
  * @license     BSD License
- * @version     SVN: $Id$
  * @link        http://pear.oops.org/package/WebAPI
  * @since       File available since release 0.0.1
  * @filesource
@@ -133,12 +132,12 @@ Class WebAPI {
 	 * @access public
 	 * @return bool
 	 * @param  string
-	 * @praam  bool   (optional) true로 설정할 경우, EUC-KR과 UTF-8을
+	 * @param  bool   (optional) true로 설정할 경우, EUC-KR과 UTF-8을
 	 *                구분하여 결과값을 반환한다.
 	 *     - ASCII returns false
 	 *     - UTF-8 returns WebAPI::UTF8
 	 *     - EUC-KR returns WebAPI::EUCKR
-	 * @sinse 1.0.1 added 2th parameter.
+	 * @since 1.0.1 added 2th parameter.
 	 */
 	static public function is_hangul (&$s, $division = false) {
 		// UTF-8 case
@@ -556,7 +555,7 @@ Class WebAPI {
 	 * @param WebAPI::browser br (optional) WebAPI::browser 의 반환값.
 	 *        비워 놓으면 내부적으로 다시 확인한다.
 	 * @return void
-	 * @sinse 1.0.3
+	 * @since 1.0.3
 	 */
 	static public function mimeHeader ($name, $br = null) {
 		// 숨김 파일은 전송 막음
@@ -679,7 +678,7 @@ Class WebAPI {
 	 *
 	 * @access public
 	 * @return stdClass
-	 * @sinse 1.0.2
+	 * @since 1.0.2
 	 */
 	static public function browser ($u = null) {
 		return WebAPI_Browser::exec ($u);

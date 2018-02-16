@@ -10,9 +10,8 @@
  * @package     WebAPI
  * @subpackage  WebAPI_JSON
  * @author      JoungKyun.Kim <http://oops.org>
- * @copyright   (c) 2015, JoungKyun.Kim
+ * @copyright   (c) 2018, OOPS.org
  * @license     BSD License
- * @version     $Id$
  * @link        http://pear.oops.org/package/WebAPI
  * @filesource
  * @since       1.0.3
