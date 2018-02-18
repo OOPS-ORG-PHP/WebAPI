@@ -334,7 +334,7 @@ Class WebAPI {
 				$start--;
 		}
 
-		if ( $data[$start - 1] & 0x80 )
+		if ( intval ($data[$start - 1]) & 0x80 )
 			$start--;
 
 		$data = substr ($data, $start, $end);
