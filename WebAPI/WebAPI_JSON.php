@@ -80,7 +80,7 @@ Class WebAPI_JSON {
 	 */
 	static public function encode ($data, $nopretty = false, $normal = true) {
 		if ( is_object ($data) || is_array ($data) ) {
-			if ( ! count ($data) )
+			if ( ! count ((array) $data) )
 				return json_encode (array ());
 		} else {
 			if ( ! ($data = trim ($data)) )
