@@ -185,7 +185,7 @@ Class WebAPI_Browser {
 		else if ( preg_match ('/Win/', $ua) )
 			self::WINDOWS ($v);
 		else if ( preg_match ('/RIM Tablet OS ([0-9.]+)/', $ua, $m) ) {
-			$v->os = 'RIM' + $m[1];
+			$v->os = 'RIM' . $m[1];
 			$v->ostype = 'RIM';
 		} else if ( preg_match ('/SymOS/', $ua) ) {
 			$v->os = 'Symbian';
@@ -277,7 +277,7 @@ Class WebAPI_Browser {
 
 		if ( preg_match ('/Windows (Phone|CE)/', $ua) ) {
 			if ( preg_match ('/Windows Phone (OS )?([0-9.]+)/', $ua, $m) )
-				$v->os = 'Phone ' + $m[2];
+				$v->os = 'Phone ' . $m[2];
 			else if ( preg_match ('/Phone|CE/', $ua, $m) )
 				$v->os = $m[0];
 			else
@@ -368,7 +368,7 @@ Class WebAPI_Browser {
 		if ( preg_match ('/iPhone|iPad/', $ua, $m) ) {
 			$v->ostype = $m[0];
 			if ( preg_match ('/OS ([0-9]+)/', $ua, $m) )
-				$v->os = 'iOS' + $m[1];
+				$v->os = 'iOS' . $m[1];
 			else
 				$v->os = 'iOS';
 		} else {
