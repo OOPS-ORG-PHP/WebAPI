@@ -304,13 +304,13 @@ Class WebAPI {
 	 * @param string The input string.
 	 */
 	static public function strlen ($str) {
-		if ( ! ($type = self::is_hangul ($data, true)) )
-			return strlen ($data);
+		if ( ! ($type = self::is_hangul ($str, true)) )
+			return strlen ($str);
 
 		if ( $type == self::UTF8 )
-			$data = iconv ('UTF-8', 'CP949', $data);
+			$str = iconv ('UTF-8', 'CP949', $str);
 
-		return strlen ($data);
+		return strlen ($str);
 	}
 	// }}}
 
