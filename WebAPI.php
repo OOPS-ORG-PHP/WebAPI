@@ -291,6 +291,29 @@ Class WebAPI {
 	}
 	// }}}
 
+	// {{{ +-- static public strlen ($str)
+	/**
+	 * Return length of strings
+	 *
+	 * 기본적인 사용법은 php의 native strlen과 동일하다.
+	 *
+	 * native strlen 과의 차이는, UTF-8 인코딩의 한글 1글자를 CP949와 같이
+	 * 2byte 로 계산을 한다.
+	 *
+	 * @return integer
+	 * @param string The input string.
+	 */
+	static public function strlen ($str) {
+		if ( ! ($type = self::is_hangul ($data, true)) )
+			return strlen ($data);
+
+		if ( $type == self::UTF8 )
+			$data = iconv ('UTF-8', 'CP949', $data);
+
+		return strlen ($data);
+	}
+	// }}}
+
 	// {{{ +-- static public (string) substr ($data, $start, $end = false)
 	/**
 	 * Return part of a string
