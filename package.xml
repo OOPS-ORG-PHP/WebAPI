@@ -11,7 +11,7 @@
 		<active>yes</active>
 	</lead>
 	<date>2019-02-05</date>
-	<time>17:52:59</time>
+	<time>17:55:34</time>
 	<version>
 		<release>1.0.16</release>
 		<api>1.0.0</api>
@@ -21,12 +21,12 @@
 		<api>stable</api>
 	</stability>
 	<license>BSD</license>
-	<notes>- fixed WebAPI::strlen always return 0
+	<notes>- fixed #6 WebAPI::autolink incorrectly converts links.
 </notes>
 	<contents>
 		<dir name="/">
 			<file role="php" md5sum="416b378165d57bccaea954d916c834e2" name="WebAPI.php" />
-			<file role="php" md5sum="e5524c63d066ba8299f9b7a5a71468d1" name="WebAPI/WebAPI_Autolink.php" />
+			<file role="php" md5sum="33778c7cdbc1e3437ca79fc680b3b5b1" name="WebAPI/WebAPI_Autolink.php" />
 			<file role="php" md5sum="8e3fee4a11bf4c5cb178a474066d7378" name="WebAPI/WebAPI_Browser.php" />
 			<file role="php" md5sum="62574e7662534bbe924a731b3b30cac1" name="WebAPI/WebAPI_Filter.php" />
 			<file role="php" md5sum="78e79f27e3045cd656a2d0127d39ce01" name="WebAPI/WebAPI_JSON.php" />
@@ -76,7 +76,7 @@
 			</stability>
 			<date>2019-02-05</date>
 			<license>BSD</license>
-			<notes>
+			<notes>- fixed #6 WebAPI::autolink incorrectly converts links.
 </notes>
 		</release>
 		<release>
