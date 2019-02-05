@@ -191,7 +191,7 @@ Class WebAPI_Autolink {
 		$des[] = '\\1<a href="\\3" target="_blank">\\3</a>';
 		$src[] = "/({$reg->mail})/{$um}i";
 		$des[] = '<a href="mailto:\\1">\\1</a>';
-		$src[] = '/<a href=[^>]+>(<a href=[^>]+>)/i';
+		$src[] = '/(<a href=[^>]+>)<a href=[^>]+>/i';
 		$des[] = '\\1';
 		$src[] = '/<\/a><\/a>/i';
 		$des[] = '</a>';
